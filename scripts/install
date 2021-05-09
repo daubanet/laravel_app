@@ -220,8 +220,9 @@ ynh_add_config --template="some_config_file" --destination="$final_path/some_con
 # FIXME: this should be handled by the core in the future
 # You may need to use chmod 600 instead of 400,
 # for example if the app is expected to be able to modify its own config
-chmod 400 "$final_path/some_config_file"
-chown $app:$app "$final_path/some_config_file"
+mkdir "$final_path/public"
+chmod 600 "$final_path/public"
+chown $app:$app "$final_path/public"
 
 ### For more complex cases where you want to replace stuff using regexes,
 ### you shoud rely on ynh_replace_string (which is basically a wrapper for sed)
